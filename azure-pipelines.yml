@@ -18,4 +18,12 @@ steps:
     backendAzureRmStorageAccountName: 'your-backend-storage-account'
     backendAzureRmContainerName: 'your-backend-container'
     backendAzureRmKey: 'terraform.tfstate'
-    workingDirectory: '$(System.Default
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+- task: TerraformTaskV1@0
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    environmentServiceName: 'your-environment'
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
+
